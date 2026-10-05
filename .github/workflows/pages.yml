@@ -1,0 +1,42 @@
+name: PropertyPilot Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Validate required files
+        shell: bash
+        run: |
+          set -e
+          for f in index.html styles.css app.js README.md docs/DATA_MODEL.md docs/API_CONTRACT.md docs/PRODUCTION_CHECKLIST.md docs/PRODUCT_OVERVIEW.md docs/ACQUISITION_NOTES.md; do
+            test -f "$f" || { echo "Missing $f"; exit 1; }
+          done
+      - name: Validate JavaScript syntax
+        run: node --check app.js
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
