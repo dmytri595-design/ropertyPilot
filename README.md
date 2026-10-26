@@ -1,9 +1,9 @@
 # PropertyPilot — AI Real Estate Listing Engine
 
-PropertyPilot is a working browser-first SaaS MVP for real estate agents and agencies. One property record powers a complete marketing package: title, listing description, SEO copy, Facebook ad, Instagram caption, short listing, buyer email, social caption, translations and key highlights.
+PropertyPilot is a working browser-first product prototype for real-estate agents and agencies. One property record powers a complete marketing package: title, listing description, SEO copy, Facebook ad, Instagram caption, short listing, buyer email, social caption, translations and key highlights.
 
 ## Product
-**Positioning:** Working SaaS prototype with production-ready integration architecture.
+**Positioning:** Working local-first prototype with adapter boundaries for later production integrations.
 **Demo user:** Jordan — fictional Demo Administrator. The actual owner/developer is Dmitry.
 **Demo disclosure:** All seeded properties, agencies, contacts, prices and addresses are fictional. AI generation, image analysis and translation use local/mock adapters. No provider API key is required.
 
@@ -12,12 +12,15 @@ Dashboard → Create Property → Upload Photos → Enter Facts → Generate Mar
 
 ## Implemented
 - Dashboard with property KPIs and recent activity
-- Property creation form with photo previews
+- Property creation form with a one-click fictional sample listing, sale/rent purpose, numeric validation, and compressed local photo previews
 - Property database with search and status filtering
 - Property detail page with photo gallery
 - Eight major generated content formats plus key highlights
 - Editable outputs with copy/regenerate
 - Mock/local AI generation and translation adapters
+- Seven selectable content templates that affect generation positioning
+- Purpose-aware SEO, email, and social copy for sale, rent, short-stay, and commercial-lease listings
+- Local status workflow for Draft / Ready / Published / Archived (status labels do not publish to external portals)
 - Seven-language translation workspace
 - Reusable templates
 - Brand Voice settings
@@ -28,7 +31,7 @@ Dashboard → Create Property → Upload Photos → Enter Facts → Generate Mar
 - Integration map and adapter contracts
 - Responsive SaaS UI
 - GitHub Actions validation and GitHub Pages workflow
-- Cover artwork and acquisition documentation
+- Cover artwork, acquisition documentation, and a buyer-facing acquisition brief
 
 ## Technology
 HTML5, CSS3, Vanilla JavaScript, LocalStorage, GitHub Actions, GitHub Pages. No frontend framework or runtime dependency.
@@ -65,6 +68,8 @@ Never put provider secrets in the static frontend.
 **Ready for buyer integration:** real AI, image analysis, translation provider, authentication, database, image storage, email, CRM, property portal integrations, monitoring, billing and enterprise security controls.
 
 ## Acquisition
+See [Buyer Brief](docs/BUYER_BRIEF.md) for a buyer-focused product summary, current limitations, rights/media notes, and a proposed roadmap.
+
 Indicative asking price: **USD 5,000 one-time**.
 Suggested milestones: **40% / 30% / 20% / 10%**.
 Buyer receives the source, repository, application, documentation, UI assets, demo data and integration contracts, subject to the final agreement and third-party/open-source exclusions.
@@ -74,4 +79,4 @@ After GitHub Pages is enabled:
 https://dmytri595-design.github.io/ropertyPilot/
 
 ## Repository note
-The repository was created as `ropertyPilot` with the initial P omitted. The product inside is branded **PropertyPilot**. This README documents the actual repository name.
+The repository was created as `ropertyPilot` with the initial P omitted. The product inside is branded **PropertyPilot**. This README documents the actual repository name. Illustrative remote demo photos are third-party references, not an asset-rights transfer.
