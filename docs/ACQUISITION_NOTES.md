@@ -21,7 +21,7 @@ Suggested milestone schedule:
 - Documentation
 - API and data model contracts
 - Production checklist
-- Cover artwork
+- Cover artwork source and repository UI assets, subject to third-party media exclusions
 - Acquisition listing copy
 - Software Asset Purchase Agreement template
 - IP Assignment Agreement template
@@ -37,3 +37,7 @@ All seeded properties, prices, addresses, contacts and metrics are fictional dem
 
 ## Legal note
 Agreement files are templates, not legal advice. Review with qualified counsel before signing.
+
+## Rights and exclusions
+
+The repository's custom LICENSE file does not grant a general license to commercialize the source. The demo uses illustrative photo URLs from third-party services; do not represent those image files as exclusively owned assets or as automatically transferred rights. Define the transaction's IP scope and media exclusions in writing. The repo has not been represented as legally audited, and transaction documents should be reviewed by qualified counsel.
