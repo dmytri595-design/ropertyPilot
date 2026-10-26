@@ -17,13 +17,41 @@ jobs:
         shell: bash
         run: |
           set -e
-          for f in index.html styles.css app.js README.md docs/DATA_MODEL.md docs/API_CONTRACT.md docs/PRODUCTION_CHECKLIST.md docs/PRODUCT_OVERVIEW.md docs/ACQUISITION_NOTES.md; do
+          for f in index.html styles.css app.js README.md docs/DATA_MODEL.md docs/API_CONTRACT.md docs/PRODUCTION_CHECKLIST.md docs/PRODUCT_OVERVIEW.md docs/ACQUISITION_NOTES.md docs/ACQUISITION_LISTING.md docs/BUYER_BRIEF.md e2e/smoke.cjs; do
             test -f "$f" || { echo "Missing $f"; exit 1; }
           done
       - name: Validate JavaScript syntax
         run: node --check app.js
-  deploy:
+  browser-smoke:
     needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null
+          npm install --no-save playwright
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 >/tmp/propertypilot-server.log 2>&1 &
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/propertypilot-server.log
+          exit 1
+      - name: Run browser smoke tests
+        env:
+          SMOKE_URL: http://127.0.0.1:4173
+        run: node e2e/smoke.cjs
+  deploy:
+    needs: [validate, browser-smoke]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
