@@ -5,6 +5,8 @@ PropertyPilot keeps external capabilities behind explicit adapter contracts.
 ## AI
 ```
 PropertyPilotAdapters.ai.generateListing(property, brand, template)
+
+The property record should include `listingPurpose` (For Sale, For Rent, Short Stay, or Commercial Lease) and a template ID. Current local logic uses these fields to shape listing copy and does not call an external model.
 PropertyPilotAdapters.ai.generateSeo(property, brand)
 PropertyPilotAdapters.ai.generateSocial(property, brand)
 PropertyPilotAdapters.ai.generateEmail(property, brand)
