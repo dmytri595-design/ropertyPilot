@@ -10,6 +10,9 @@
 - [ ] Server-side rate limiting
 
 ## AI / Translation
+- [ ] Preserve the selected listing purpose in all generated outputs
+- [ ] Add factuality checks so sale/rent phrasing cannot contradict the property record
+- [ ] Evaluate template behavior against human-reviewed sample listings
 - [ ] Select provider(s)
 - [ ] Server-side secret manager
 - [ ] Prompt and model versioning
@@ -20,6 +23,8 @@
 - [ ] Production translation provider
 
 ## Media
+- [ ] Confirm photo ownership / usage permission before publication
+- [ ] Do not treat illustrative demo photo URLs as customer assets
 - [ ] Secure object storage
 - [ ] Image resize/transcoding
 - [ ] Malware/content checks
@@ -45,6 +50,7 @@
 - [ ] Social publishing if required
 
 ## Commercial / Operations
+- [ ] Define exactly what Published status means for each integration; local prototype status alone must not imply external publication
 - [ ] Billing
 - [ ] Usage metering
 - [ ] Terms of service
