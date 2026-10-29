@@ -53,7 +53,7 @@ jobs:
           exit 1
       - name: Run browser smoke tests
         env:
-          SMOKE_URL: http://127.0.0.1:4173
+          SMOKE_URL: http://127.0.0.1:4173/app.html
         run: node e2e/smoke.cjs
   deploy:
     needs: [validate, browser-smoke]
