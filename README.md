@@ -80,3 +80,10 @@ https://dmytri595-design.github.io/ropertyPilot/
 
 ## Repository note
 The repository was created as `ropertyPilot` with the initial P omitted. The product inside is branded **PropertyPilot**. This README documents the actual repository name. Illustrative remote demo photos are third-party references, not an asset-rights transfer.
+
+## Two-site product setup
+
+- **Public product website:** https://propertypilot-brand.vercel.app/
+- **Main business application:** https://dmytri595-design.github.io/ropertyPilot/
+
+The public website introduces the product and links to the existing application. The application remains the root homepage; its workflow and operational interface are kept separate from the promotional website. Website source: [website/index.html](website/index.html).
